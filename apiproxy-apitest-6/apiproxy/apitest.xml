@@ -3,12 +3,16 @@
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1459951077086</CreatedAt>
     <CreatedBy>kurt.kanaskie@gmail.com</CreatedBy>
-    <Description>Imported but not deployed</Description>
+    <Description>Changed to see what happens with ops-get-api.sh with GitHub</Description>
     <DisplayName>apitest</DisplayName>
-    <LastModifiedAt>1459951077086</LastModifiedAt>
+    <LastModifiedAt>1460048491214</LastModifiedAt>
     <LastModifiedBy>kurt.kanaskie@gmail.com</LastModifiedBy>
-    <Policies/>
-    <ProxyEndpoints/>
+    <Policies>
+        <Policy>Assign-Message-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
     <Resources/>
     <TargetServers/>
     <TargetEndpoints/>
