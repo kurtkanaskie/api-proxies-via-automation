@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="apitest">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1459943814226</CreatedAt>
+    <CreatedBy>kurt.kanaskie@gmail.com</CreatedBy>
+    <DisplayName>apitest</DisplayName>
+    <LastModifiedAt>1459943814226</LastModifiedAt>
+    <LastModifiedBy>kurt.kanaskie@gmail.com</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints/>
+    <Resources/>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>
