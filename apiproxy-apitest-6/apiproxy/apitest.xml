@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="6" name="apitest">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1459951077086</CreatedAt>
+    <CreatedBy>kurt.kanaskie@gmail.com</CreatedBy>
+    <Description>Changed to see what happens with ops-get-api.sh with GitHub</Description>
+    <DisplayName>apitest</DisplayName>
+    <LastModifiedAt>1460048491214</LastModifiedAt>
+    <LastModifiedBy>kurt.kanaskie@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>Assign-Message-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>
