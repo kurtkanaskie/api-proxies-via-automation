@@ -1,0 +1,7 @@
+# /bin/bash
+UN=your.name@email.com
+PW=your-password
+ORG=yourorg
+MGMTSVR=https://api.enterprise.apigee.com
+UNPW=$UN:$PW
+
