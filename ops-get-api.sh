@@ -64,33 +64,59 @@ then
 		echo; echo "Silent mode required options: -s -n apiname -r apirevision -R repository -c comment-for-commit" 
 		usage
 	fi
-else
-	if [ "$API" = "" ] || [ "$REPO" = "" ]; then
-		echo; echo "Required options: -n apiname -R repository" 
-		usage
-	fi
 fi
 
 if [ $VERBOSE = 1 ]; then
-	echo; echo "COMMAND TO RUN: `basename $0` $*"
+	echo; echo "RUNNING: `basename $0` $*"
 fi
 
-# Check that the REPO exists and is a git repo
+# Get the REPO if not specified
 # ======================================================
-if [ -d "$REPO" ]
-then
-	cd $REPO
-	if git rev-parse --git-dir > /dev/null 2>&1;
+while [ "$REPO" = "" ]; do
+	echo; echo ===================
+	echo -n "Enter the local repository name: "; read REPO
+
+	# Check that the REPO exists and is a git repo
+	# ======================================================
+	if [ -d "$REPO" ]
 	then
-		cd $MYDIR
-	else 
-		echo; echo "ERROR: "\REPO" must be a GitHub local repository"
-		usage
+		cd $REPO
+		if git rev-parse --git-dir > /dev/null 2>&1;
+		then
+			cd $MYDIR
+		else 
+			echo; echo "ERROR: \"$REPO\" must be a GitHub local repository"
+			REPO="";
+		fi
+	else
+		echo; echo "ERROR: \"$REPO\" must exist and be a GitHub local repository"
+		REPO="";
 	fi
-else
-	echo; echo "ERROR: "\REPO" must exist and be a GitHub local repository"
-	usage
-fi
+done
+
+# Get the APIs if not specified
+# ======================================================
+while [ "$API" = "" ]; do
+	echo; echo ===================
+	echo "No API was specified, getting APIs from \"$MGMTSVR\""
+	if [ $VERBOSE = 1 ]; then
+		echo "curl -k -s -u $UNPW $MGMTSVR/v1/o/$ORG/apis"
+	fi
+	APIS=`curl -k -s -u $UNPW $MGMTSVR/v1/o/$ORG/apis`
+	echo "$APIS"
+	echo; echo ===================
+	echo -n "Which API do you want: "; read API
+
+	if [ $VERBOSE = 1 ]; then
+		echo "curl -k -s -u $UNPW $MGMTSVR/v1/o/$ORG/apis/$API"
+	fi
+	curl -k -s -u $UNPW $MGMTSVR/v1/o/$ORG/apis/$API
+	echo; echo; echo ===================
+	echo -n "Is that the right API? y|(n): "; read R
+	if [ "$R" != "y" ]; 
+		then API="";
+	fi
+done
 
 # Get the revisions detail for the API if not specified
 # ======================================================
@@ -111,7 +137,7 @@ while [ "$REVISION" = "" ]; do
 	fi
 	curl -k -s -u $UNPW $MGMTSVR/v1/o/$ORG/apis/$API/revisions/$REVISION 
 	echo; echo; echo ===================
-	echo -n "Is that's the right revision, OK? y|(n): "; read R
+	echo -n "Is that the right revision? y|(n): "; read R
 	if [ "$R" != "y" ]; 
 		then REVISION="";
 	fi

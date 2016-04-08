@@ -11,7 +11,7 @@ Requires you to setup your own GitHub repository, unless you want to share your 
 * Copy the scripts to your local repository or your local bin.
 * Set your parameters: ```cp ops-env.sh-dist ops-env.sh``` and adjust to your environment.
 * Run interactively:
-	* Example: ```/ops-get-api.sh -n apitest -R .```
+	* Example: ```/ops-get-api.sh -R .```
 * Run in silent mode:
 	* Example: ```/ops-get-api.sh -s -n apitest -r 6 -R . -c "Comment for commit goes here"```
 
@@ -26,5 +26,5 @@ Silent mode required options: -s -n apiname -r apirevision -R repository -c comm
 ```
 
 TODO:
-* Make fully interactive, prompt for local repository and if no ```apiname``` then curl to get list from Edge.
+* Make fully interactive, prompt for local repository. 
 * Support ```[-A (all)]``` mode, to download all proxies in one pass.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-AddPingData">
+    <DisplayName>AM-AddPingData</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>original-payload</Name>
+        <Value/>
+        <Ref>message.content</Ref>
+    </AssignVariable>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{
+        "client"            : "@client.host#",
+        "time"              : "@system.time#",
+        "timestamp"         : "@system.timestamp#",
+        "apiproxy"          : "@apiproxy.name#",
+        "basepath-suffix"   : "@proxy.basepath#@proxy.pathsuffix#",
+        "environment"       : "@environment.name#",
+        "client_start_time" : "@client.received.start.timestamp#",
+        "response-message"  :  @original-payload#,
+        "client_end_time"   : "@client_end_time#",
+        "total_request_time": "@total_request_time#"
+}
+    </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

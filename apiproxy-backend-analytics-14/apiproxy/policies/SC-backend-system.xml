@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="SC-backend-system">
+    <DisplayName>SC-backend-system</DisplayName>
+    <Properties/>
+    <!-- Preferred approach to use custom analytics dimensions in report -->
+    <Statistics>
+        <Statistic name="BackendSystem" ref="backend-system" type="String"/>
+    </Statistics>
+</StatisticsCollector>
