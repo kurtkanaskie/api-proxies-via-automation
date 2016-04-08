@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JS-set-target-url">
+    <!-- Hack to use target url which is available in regular analytics reports. -->
+    <DisplayName>JS-set target url</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://JS-set-target-url.js</ResourceURL>
+</Javascript>

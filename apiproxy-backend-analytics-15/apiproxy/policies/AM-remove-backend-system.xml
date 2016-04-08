@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-remove-backend-system">
+    <DisplayName>AM-remove backend system</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <!-- For debugging, to verify its set -->
+            <Header name="X-TargetURL">{target.url}</Header>
+        </Headers>
+    </Set>
+    <Remove>
+        <Headers>
+            <Header name="X-Backend-System"/>
+        </Headers>
+    </Remove>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <DefaultFaultRule name="DefaultFaultRule"/>
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows/>
+    <PostFlow name="PostFlow">
+        <Response>
+            <Step>
+                <Name>EV-backend-system</Name>
+            </Step>
+            <Step>
+                <Name>JS-set-target-url</Name>
+            </Step>
+            <Step>
+                <Name>SC-backend-system</Name>
+            </Step>
+            <Step>
+                <Name>AM-remove-backend-system</Name>
+            </Step>
+        </Response>
+        <Request/>
+    </PostFlow>
+    <ScriptTarget>
+        <ResourceURL>node://api.js</ResourceURL>
+    </ScriptTarget>
+</TargetEndpoint>

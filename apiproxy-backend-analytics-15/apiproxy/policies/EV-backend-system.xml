@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-backend-system">
+    <DisplayName>EV-backend-system</DisplayName>
+    <Properties/>
+    <!-- Set by Node.js app to track backend system, prefereably a "coded" value to not expose backend URLs -->
+    <Header name="X-Backend-System">
+        <Pattern ignoreCase="true">{backend-system}</Pattern>
+    </Header>
+    <Source clearPayload="false">response</Source>
+    <VariablePrefix/>
+</ExtractVariables>

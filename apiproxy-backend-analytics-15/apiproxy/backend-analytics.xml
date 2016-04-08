@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="15" name="backend-analytics">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1460141181858</CreatedAt>
+    <CreatedBy>kurt.kanaskie@gmail.com</CreatedBy>
+    <Description>Demonstration of custom analytics from backend systems. Consolidated timing data to all messages.</Description>
+    <DisplayName>backend-analytics</DisplayName>
+    <LastModifiedAt>1460141828714</LastModifiedAt>
+    <LastModifiedBy>kurt.kanaskie@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-AddTimingData</Policy>
+        <Policy>AM-create-ping-response</Policy>
+        <Policy>AM-remove-backend-system</Policy>
+        <Policy>EV-backend-system</Policy>
+        <Policy>JS-SetTimes</Policy>
+        <Policy>JS-set-target-url</Policy>
+        <Policy>SC-backend-system</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>node://api.js</Resource>
+        <Resource>node://node_modules.zip</Resource>
+        <Resource>node://package.json</Resource>
+        <Resource>jsc://JS-SetTimes.js</Resource>
+        <Resource>jsc://JS-set-target-url.js</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

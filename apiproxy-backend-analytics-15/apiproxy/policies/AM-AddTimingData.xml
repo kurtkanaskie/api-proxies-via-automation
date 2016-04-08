@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-AddTimingData">
+    <DisplayName>AM-AddTimingData</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>original-payload</Name>
+        <Value/>
+        <Ref>message.content</Ref>
+    </AssignVariable>
+    <Set>
+        <!-- This doesnt work, value is -1 "@client.sent.end.timestamp#", -->
+        <!-- This doesnt work, value is -1 "@client.sent.start.timestamp#", -->
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{
+        "client": "@client.host#",
+        "time": "@system.time#",
+        "timestamp": "@system.timestamp#",
+        "apiproxy": "@apiproxy.name#",
+        "basepath-suffix": "@proxy.basepath#@proxy.pathsuffix#",
+        "request-url":"%client.scheme#//%request.header.host#%request.path#",
+        "environment": "@environment.name#",
+        "request_start_time"            : "@request_start_time#",
+        "client_received_start_time"    : "@client_received_start_time#",
+        "client_received_end_time"      : "@client_received_end_time#",
+        "target_start_time"             : "@target_start_time#",
+        "response-message"              : @original-payload#,
+        "target_end_time"               : "@target_end_time#",
+        "client_sent_start_time"        : "@client_sent_start_time#",
+        "client_sent_end_time"          : "@client_sent_end_time#",
+        "request_end_time"              : "@request_end_time#",
+        
+        "total_client_time" : "@total_client_time#",
+        "total_target_time" : "@total_target_time#",
+        "total_request_time": "@total_request_time#"
+}
+    </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
